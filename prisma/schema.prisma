@@ -12,6 +12,7 @@ model guesses {
   userId               Int
   matchId              Int
   guess                Int
+  createAt             DateTime             @default(dbgenerated("'2023-01-29 17:58:47.681189-03'::timestamp with time zone")) @db.Timestamptz(6)
   users                users                @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "guesses_fk0")
   matches              matches              @relation(fields: [matchId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "guesses_fk1")
   possibilitiesGuesses possibilitiesGuesses @relation(fields: [guess], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "guesses_fk2")
@@ -22,6 +23,7 @@ model matches {
   homeTeamId                          Int
   visitingTeamId                      Int
   resultMatch                         Int
+  createAt                            DateTime             @default(dbgenerated("'2023-01-29 17:58:47.681189-03'::timestamp with time zone")) @db.Timestamptz(6)
   guesses                             guesses[]
   teams_matches_homeTeamIdToteams     teams                @relation("matches_homeTeamIdToteams", fields: [homeTeamId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "matches_fk0")
   teams_matches_visitingTeamIdToteams teams                @relation("matches_visitingTeamIdToteams", fields: [visitingTeamId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "matches_fk1")
@@ -31,24 +33,28 @@ model matches {
 model possibilitiesGuesses {
   id          Int       @id(map: "possibilitiesGuesses_pk") @default(autoincrement())
   description String
+  createAt    DateTime  @default(dbgenerated("'2023-01-29 17:58:47.681189-03'::timestamp with time zone")) @db.Timestamptz(6)
   guesses     guesses[]
 }
 
 model possibilitiesResults {
   id          Int       @id(map: "possibilitiesResults_pk") @default(autoincrement())
   description String
+  createAt    DateTime  @default(dbgenerated("'2023-01-29 17:58:47.681189-03'::timestamp with time zone")) @db.Timestamptz(6)
   matches     matches[]
 }
 
 model teams {
   id                                    Int       @id(map: "teams_pk") @default(autoincrement())
   name                                  String
+  createAt                              DateTime  @default(dbgenerated("'2023-01-29 17:58:47.681189-03'::timestamp with time zone")) @db.Timestamptz(6)
   matches_matches_homeTeamIdToteams     matches[] @relation("matches_homeTeamIdToteams")
   matches_matches_visitingTeamIdToteams matches[] @relation("matches_visitingTeamIdToteams")
 }
 
 model users {
-  id      Int       @id(map: "users_pk") @default(autoincrement())
-  name    String    @unique
-  guesses guesses[]
+  id       Int       @id(map: "users_pk") @default(autoincrement())
+  name     String    @unique
+  createAt DateTime  @default(dbgenerated("'2023-01-29 17:58:47.681189-03'::timestamp with time zone")) @db.Timestamptz(6)
+  guesses  guesses[]
 }

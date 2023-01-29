@@ -4,6 +4,7 @@ CREATE TABLE "guesses" (
     "userId" INTEGER NOT NULL,
     "matchId" INTEGER NOT NULL,
     "guess" INTEGER NOT NULL,
+    "createAt" TIMESTAMPTZ(6) NOT NULL DEFAULT '2023-01-29 17:58:47.681189-03'::timestamp with time zone,
 
     CONSTRAINT "guesses_pk" PRIMARY KEY ("id")
 );
@@ -14,6 +15,7 @@ CREATE TABLE "matches" (
     "homeTeamId" INTEGER NOT NULL,
     "visitingTeamId" INTEGER NOT NULL,
     "resultMatch" INTEGER NOT NULL,
+    "createAt" TIMESTAMPTZ(6) NOT NULL DEFAULT '2023-01-29 17:58:47.681189-03'::timestamp with time zone,
 
     CONSTRAINT "matches_pk" PRIMARY KEY ("id")
 );
@@ -22,6 +24,7 @@ CREATE TABLE "matches" (
 CREATE TABLE "possibilitiesGuesses" (
     "id" SERIAL NOT NULL,
     "description" TEXT NOT NULL,
+    "createAt" TIMESTAMPTZ(6) NOT NULL DEFAULT '2023-01-29 17:58:47.681189-03'::timestamp with time zone,
 
     CONSTRAINT "possibilitiesGuesses_pk" PRIMARY KEY ("id")
 );
@@ -30,6 +33,7 @@ CREATE TABLE "possibilitiesGuesses" (
 CREATE TABLE "possibilitiesResults" (
     "id" SERIAL NOT NULL,
     "description" TEXT NOT NULL,
+    "createAt" TIMESTAMPTZ(6) NOT NULL DEFAULT '2023-01-29 17:58:47.681189-03'::timestamp with time zone,
 
     CONSTRAINT "possibilitiesResults_pk" PRIMARY KEY ("id")
 );
@@ -38,6 +42,7 @@ CREATE TABLE "possibilitiesResults" (
 CREATE TABLE "teams" (
     "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
+    "createAt" TIMESTAMPTZ(6) NOT NULL DEFAULT '2023-01-29 17:58:47.681189-03'::timestamp with time zone,
 
     CONSTRAINT "teams_pk" PRIMARY KEY ("id")
 );
@@ -46,6 +51,7 @@ CREATE TABLE "teams" (
 CREATE TABLE "users" (
     "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
+    "createAt" TIMESTAMPTZ(6) NOT NULL DEFAULT '2023-01-29 17:58:47.681189-03'::timestamp with time zone,
 
     CONSTRAINT "users_pk" PRIMARY KEY ("id")
 );
