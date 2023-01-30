@@ -75,25 +75,8 @@ async function findManyGuessesByUserId(userId: number) {
 
 }
 
-// async function findManyWinnerGuesses() {
-//     return prisma.guesses.findMany({
-//        include : {
-//         matches : true
-//        },
-//        where :{
-//         matches:{
-//             resultMatch: {
-//                 equals:{
-                    
-//                 }
-//             }
-//         }
-//        }
-//     })
-// }
 export {
     createGuess,
     findManyGuesses,
     findManyGuessesByUserId,
-    // findManyWinnerGuesses
 }

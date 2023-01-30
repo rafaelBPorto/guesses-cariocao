@@ -21,32 +21,12 @@ async function guessPost(req: Request, res: Response) {
 
 async function guessesFindMany(req: Request, res: Response) {
     const userId = req.query.userId
-    const winner = req.query.winner
-    const losted = req.query.losted
 
     try {
-        if(userId && !winner &&!losted) {
+        if(userId) {
             const userGuesses = await findManyGuessesByUserId(Number(userId))
             return res.status(200).send(userGuesses)
         }  
-        
-        // if(winner && !userId && !losted){
-        //     const winnerGuesses = await findManyWinnerGuesses()
-        //     return res.status(200).send(winnerGuesses)
-        // }
-
-        // if(losted && !userId && !winner){
-        //     const lostedGuesses = await findManyLostedrGuesses()
-        //     return res.status(200).send(losted)
-        // }
-        // if(userId && winner &&!losted){
-        //     const userWinnerGuesses = await findManyUserWinnerGuesses(Number(userId))
-        //     return res.status(200).send(userWinnerGuesses)
-        // }
-        // if(userId && losted && !winner){
-        //     const userWinnerGuesses = await findManylLostedGuesses(Number(userId))
-        //     return res.status(200).send(userWinnerGuesses)
-        // }
 
         const guesses = await findManyGuesses();
         res.status(200).send(guesses);
