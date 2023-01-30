@@ -11,30 +11,30 @@ async function findManyGuesses() {
         select: {
             id: true,
             users: {
-                select:{
+                select: {
                     id: true,
                     name: true
                 }
             },
             matches: {
-                select:{
+                select: {
                     id: true,
                     teams_matches_homeTeamIdToteams: {
-                        select :{
+                        select: {
                             id: true,
                             name: true
                         }
                     },
-                    teams_matches_visitingTeamIdToteams :{
-                        select:{
+                    teams_matches_visitingTeamIdToteams: {
+                        select: {
                             id: true,
                             name: true
                         }
                     }
                 }
             },
-            possibilitiesGuesses:{
-                select:{
+            possibilitiesGuesses: {
+                select: {
                     id: true,
                     description: true
                 }
@@ -42,7 +42,58 @@ async function findManyGuesses() {
         }
     });
 }
+
+async function findManyGuessesByUserId(userId: number) {
+    return prisma.guesses.findMany({
+        select: {
+            id: true,
+            matches: {
+                select: {
+                    id: true,
+                    teams_matches_homeTeamIdToteams: {
+                        select: {
+                            id: true,
+                            name: true
+                        }
+                    },
+                    teams_matches_visitingTeamIdToteams: {
+                        select: {
+                            id: true,
+                            name: true
+                        }
+                    }
+                }
+            },
+            possibilitiesGuesses: {
+                select: {
+                    id: true,
+                    description: true
+                }
+            }
+        }
+    });
+
+}
+
+// async function findManyWinnerGuesses() {
+//     return prisma.guesses.findMany({
+//        include : {
+//         matches : true
+//        },
+//        where :{
+//         matches:{
+//             resultMatch: {
+//                 equals:{
+                    
+//                 }
+//             }
+//         }
+//        }
+//     })
+// }
 export {
     createGuess,
-    findManyGuesses
+    findManyGuesses,
+    findManyGuessesByUserId,
+    // findManyWinnerGuesses
 }

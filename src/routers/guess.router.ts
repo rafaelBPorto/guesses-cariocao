@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { guessesFindMany, guessPost } from "../controllers/guess.controllers.js";
+import {guessesFindMany, guessPost } from "../controllers/guess.controllers.js";
 import { guessValidation } from "../middlewares/guess.middleware.js";
 
 const guessRouter = Router();
