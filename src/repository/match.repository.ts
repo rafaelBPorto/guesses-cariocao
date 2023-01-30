@@ -18,6 +18,8 @@ async function findResultMatch(idMatch: number) {
     return match.resultMatch;
 }
 
+
+
 export {
-    findResultMatch
+    findResultMatch,
 }

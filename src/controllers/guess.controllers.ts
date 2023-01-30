@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { guessInput } from "../protocols.js";
+import { findManyGuesses } from "../repository/guess.repository.js";
 import { insertUniqueGuess } from "../services/guess.service.js";
 
 
@@ -18,17 +19,18 @@ async function guessPost(req: Request, res: Response) {
     }
 }
 
-// async function usersFindMany(req: Request, res: Response) {
+async function guessesFindMany(req: Request, res: Response) {
     
-//     try {
-//         const users = await findManyUsers() ;
-//         res.status(200).send(users);
+    try {
+        const guesses = await findManyGuesses() ;
+        res.status(200).send(guesses);
 
-//     } catch (error) {
-//         res.send(error).status(500)
-//     }
-// }
+    } catch (error) {
+        res.send(error).status(500)
+    }
+}
 
 export {
-    guessPost
+    guessPost,
+    guessesFindMany
 }
