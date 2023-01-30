@@ -15,12 +15,12 @@ npm i
 4. Configure o arquivo .env utilizando o .env.example como referêcia.
 5. Realize toas a migrações
 ```bash
-npm run migration:run
+npx prisma migrate dev
 ```
 
-6. Popule seu banco de dados
+6. Caso no passo anterios o banco não tenha sido poupulado utilize
 ```bash
-npm run dev:seed
+npx prisma db pull
 ```
 7. Acesse o ambiente de desenvolvimento
 ```bash
