@@ -5,9 +5,10 @@
 Com o guess cariocao você poderá controlar todos os palpites e resultados dos jogos do campenoato carioca 2023 com seues amigos.
   #### Tecnologias utilizadas
   
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original-wordmark.svg" width="40" height="40" /> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" width="40" height="40"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original-wordmark.svg" width="40" height="40" /> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" width="40" height="40"/> <img src=src/assests/to_readme/prisma-2.svg width="40" height="40"/> 
 
-          
+
+## Inicialização          
 1. Clone o repositório
 2. Instale as dependências 
 ```bash
