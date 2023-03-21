@@ -1,8 +1,8 @@
 # guess cariocao
-É uma API back-end para realizar palpites dos jogos do campeonato carioca 2022
+É uma API back-end para realizar palpites dos jogos do campeonato carioca 2023
 
 ## Sobre
-Com o guess cariocao você poderá controlar todos os palpites e resultados dos jogos do campenoato carioca 2022 com seues amigos.
+Com o guess cariocao você poderá controlar todos os palpites e resultados dos jogos do campenoato carioca 2023 com seues amigos.
 
 ## Como realizar o desenvolvimento
 
@@ -18,9 +18,9 @@ npm i
 npx prisma migrate dev
 ```
 
-6. Caso no passo anterios o banco não tenha sido poupulado utilize
+6. Para popular o banco de dados utilize o comando
 ```bash
-npx prisma db pull
+npx prisma db seed"
 ```
 7. Acesse o ambiente de desenvolvimento
 ```bash
@@ -45,7 +45,7 @@ npm run dev
     Respota:
     [
         {
-            "id": <id-usuario>,
+            "id": "<id-usuario>",
             "name": "<nome-do-usuario>",
             "createAt": "<data-da-criação>"
         }
@@ -58,7 +58,7 @@ npm run dev
     Resposta:
     [
         {
-            "id": 1,
+            "id": "1",
             "name": "<nome-do-time>",
             "createAt": "<data-da-criação>"
         }
@@ -137,20 +137,20 @@ GET => /find-all-guesses
 GET => /find-all-guesses?userId=<userId>
     [
         {
-            "id": <id-palpite>,
+            "id": "<id-palpite>",
             "matches": {
-            "id": <id-partida>,
+            "id": "<id-partida>",
             "teams_matches_homeTeamIdToteams": {
-                "id": <id-time-casa>,
+                "id": "<id-time-casa>",
                 "name": "<nome-time-casa>"
             },
             "teams_matches_visitingTeamIdToteams": {
-                "id": <id-time-visitante>,
+                "id": "<id-time-visitante>",
                 "name": "<nome-time-visitante>"
             }
             },
             "possibilitiesGuesses": {
-                "id": <id-guess>,
+                "id": "<id-guess>",
                 "description": "<descricacao-palpite>"
             }
         }
