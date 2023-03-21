@@ -156,3 +156,7 @@ GET => /find-all-guesses?userId=<userId>
         }
     ]
 ```
+
+### Diagrama do banco de dados
+![Diagrama_Banco_de_Dados_guesses_cariocao](https://user-images.githubusercontent.com/85373624/226603155-9b604133-2739-469c-a399-db389a6ee76c.png)
+
